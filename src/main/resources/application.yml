@@ -5,7 +5,7 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     druid:
-      # Á¬½Ó³ØÅäÖÃ
+      # è¿æ¥æ± é…ç½®
       initial-size: 5
       max-active: 30
       min-idle: 5
@@ -15,12 +15,12 @@ spring:
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
-      # ´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡
+      # æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å°
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 30
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ£¬'wall'ÓÃÓÚ·À»ğÇ½
+      # é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filtersï¼Œå»æ‰åç›‘æ§ç•Œé¢sqlæ— æ³•ç»Ÿè®¡ï¼Œ'wall'ç”¨äºé˜²ç«å¢™
       filters: stat,wall,slf4j
-      # Í¨¹ıconnectPropertiesÊôĞÔÀ´´ò¿ªmergeSql¹¦ÄÜ£»ÂıSQL¼ÇÂ¼
+      # é€šè¿‡connectPropertieså±æ€§æ¥æ‰“å¼€mergeSqlåŠŸèƒ½ï¼›æ…¢SQLè®°å½•
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
       web-stat-filter:
         enabled: true
@@ -35,9 +35,9 @@ spring:
 mybatis:
   type-aliases-package: com.honeypotato.homemanager.model
 #  type-handlers-package:
-  configuration:
-    map-underscore-to-camel-case: true
-    default-fetch-size: 100
-    default-statement-timeout: 30
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    default-fetch-size: 100
+#    default-statement-timeout: 30
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
