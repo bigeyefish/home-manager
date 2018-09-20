@@ -1,18 +1,8 @@
 package com.honeypotato.homemanager.dao;
 
+import com.honeypotato.homemanager.common.Mapper;
 import com.honeypotato.homemanager.model.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
+public interface UserMapper extends Mapper<User> {
 
-@Mapper
-public interface UserMapper {
-
-    @Select("SELECT * FROM USER WHERE ID = #{id}")
-    User selectById(Integer id);
-
-    @Select("SELECT * FROM USER")
-    List<User> queryList(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 }

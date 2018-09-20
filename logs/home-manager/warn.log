@@ -1,1 +1,0 @@
-[2018-09-20 10:35:58,943][rebel-change-detector-thread][WARN][org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider:166] No MyBatis mapper was found in '[com.honeypotato.homemanager.dao]' package. Please check your configuration.
