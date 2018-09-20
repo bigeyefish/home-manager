@@ -2,6 +2,7 @@ package com.honeypotato.homemanager.dao;
 
 import com.honeypotato.homemanager.model.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface UserMapper {
     User selectById(Integer id);
 
     @Select("SELECT * FROM USER")
-    List<User> queryUserList();
+    List<User> queryList(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 }

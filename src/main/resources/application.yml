@@ -32,12 +32,16 @@ spring:
         allow: 127.0.0.1
         login-username: admin
         login-password: 123456
+  mvc:
+    throw-exception-if-no-handler-found: true
 mybatis:
   type-aliases-package: com.honeypotato.homemanager.model
 #  type-handlers-package:
-#  configuration:
-#    map-underscore-to-camel-case: true
-#    default-fetch-size: 100
-#    default-statement-timeout: 30
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  page-size-zero: true

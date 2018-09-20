@@ -1,7 +1,7 @@
 package com.honeypotato.homemanager.configurer;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @Configuration
 @MapperScan("com.honeypotato.homemanager.dao")

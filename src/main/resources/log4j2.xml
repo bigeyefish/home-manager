@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn" monitorInterval="3600">
+    <properties>
+        <Property name="app_name">home-manager</Property>
+        <Property name="log_path">logs/${app_name}</Property>
+    </properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d][%t][%p][%l] %m%n" />
+        </Console>
+        <RollingFile name="system_log" fileName="${log_path}/system.log" filePattern="${log_path}/history/system-%d{yyyyMMdd}.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="error_log" fileName="${log_path}/error.log" filePattern="${log_path}/history/error-%d{yyyyMMdd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="user_log" fileName="${log_path}/user.log" filePattern="${log_path}/history/user-%d{yyyyMMdd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <Root level="info">
+            <AppenderRef ref="system_log" />
+            <AppenderRef ref="Console" />
+        </Root>
+        <Logger name="com.honeypotato.homemanager.dao" level="debug">
+            <!--<AppenderRef ref="Console" />-->
+        </Logger>
+        <AsyncLogger name="user" level="info" additivity="false">
+            <AppenderRef ref="user_log"/>
+        </AsyncLogger>
+        <AsyncLogger name="error" level="error" additivity="false">
+            <AppenderRef ref="error_log"/>
+            <AppenderRef ref="Console" />
+        </AsyncLogger>
+    </loggers>
+
+</configuration>
