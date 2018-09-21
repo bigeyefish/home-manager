@@ -1,16 +1,10 @@
-package com.honeypotato.homemanager.common.model;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.honeypotato.homemanager.common;
 
 /**
  * 静态常量类
  * Created by sanyihwang on 2018/9/20.
  **/
 public class Constant {
-
-    /*返回数据编码和信息*/
-    public static final Map<Integer, String> codeMap = new HashMap<>();
 
     public static final String MD5_FRE = "*_*ILovePotato*_*";
 
