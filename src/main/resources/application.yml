@@ -34,9 +34,20 @@ spring:
         login-password: 123456
   mvc:
     throw-exception-if-no-handler-found: true
+  redis:
+    host: ali-server2
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 10s
+    timeout: 10s
 mybatis:
   type-aliases-package: com.honeypotato.homemanager.model
-#  type-handlers-package:
+  #  type-handlers-package:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 pagehelper:

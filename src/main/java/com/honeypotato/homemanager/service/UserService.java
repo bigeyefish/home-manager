@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.honeypotato.homemanager.common.Mapper;
 import com.honeypotato.homemanager.model.User;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ public class UserService {
      * @param id
      * @return
      */
+    @Cacheable(value = "user", key="#id")
     public User queryById(int id) {
         return userMapper.selectByPrimaryKey(id);
     }

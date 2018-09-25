@@ -3,11 +3,13 @@ package com.honeypotato.homemanager.model;
 import lombok.Data;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = 4648544488319469973L;
     @Id
     private Integer id;
 
