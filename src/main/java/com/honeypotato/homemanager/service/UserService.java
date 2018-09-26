@@ -10,13 +10,15 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author sanyihwang
+ */
 @Service
 @Log4j2(topic = "user")
 public class UserService {
 
     @Resource
     private Mapper<User> userMapper;
-//    private UserMapper userMapper;
 
     /**
      * 根据主键查询用户
@@ -29,7 +31,6 @@ public class UserService {
     }
 
     public PageInfo<User> queryList(int page, int size) {
-        // PageHelper.startPage(page, size);
         List<User> users = userMapper.selectAll(page, size);
         return new PageInfo<>(users);
     }
