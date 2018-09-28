@@ -3,6 +3,7 @@ package com.honeypotato.homemanager.service;
 import com.github.pagehelper.PageInfo;
 import com.honeypotato.homemanager.common.Mapper;
 import com.honeypotato.homemanager.model.User;
+import com.honeypotato.homemanager.service.base.AbstractServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @Service
 @Log4j2(topic = "user")
-public class UserService {
+public class UserService extends AbstractServiceImpl<User> {
 
     @Resource
     private Mapper<User> userMapper;
@@ -25,7 +26,7 @@ public class UserService {
      * @param id
      * @return
      */
-    @Cacheable(value = "user", key="#id")
+    // @Cacheable(value = "user", key="#id")
     public User queryById(int id) {
         return userMapper.selectByPrimaryKey(id);
     }

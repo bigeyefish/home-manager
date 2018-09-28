@@ -13,7 +13,7 @@ public class RetFactory {
      * @param data
      * @return
      */
-    public static RetResult success(Object data) {
+    public static <T> RetResult success(T data) {
         return RetFactory.createResult(ResultEnum.SUCCESS, data);
     }
 

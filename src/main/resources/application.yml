@@ -57,4 +57,7 @@ pagehelper:
   params: count=countSql
   page-size-zero: true
 #mapper:
+shiro:
+  loginUrl: /noLogin
+  unauthorizedUrl: /noAuthorize
 #  mappers: com.honeypotato.homemanager.common.Mapper

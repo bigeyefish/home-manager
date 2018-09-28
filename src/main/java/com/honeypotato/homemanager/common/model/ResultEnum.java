@@ -6,7 +6,9 @@ package com.honeypotato.homemanager.common.model;
  **/
 public enum  ResultEnum {
 
+    /* 成功 */
     SUCCESS(0, "success"),
+    /* 失败 */
     ERROR(-1, "system error"),
     LOGIN_FAIL(1001, "用户名或密码错误"),
     HAVE_NOT_LOGIN(1002, "用户未登陆"),
@@ -19,7 +21,7 @@ public enum  ResultEnum {
     TOKEN_TIMEOUT(1009, "token 过期"),
     USER_DONOT_EXIST(1010, "用户不存在"),
     USER_INACTIVE(1011, "用户不可用"),
-    DUPLICATE_RESOURCE(1012, "存在相同的资源"),
+    UNAUTHORIZED(1012, "无权访问资源"),
     ILLEGAL_CRON(1013, "cron表达式非法"),
     DELETE_QUARTZ_JOB_ERROR(1014, "删除quartz中job失败"),
     SCORE_NOT_ENOUGH(1015, "剩余分值不足"),

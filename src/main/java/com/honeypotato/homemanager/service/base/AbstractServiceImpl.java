@@ -14,7 +14,7 @@ import java.util.List;
  * 基于通用MyBatis Mapper插件的Service接口的实现
  * Created by Lenovo on 2018/9/21.
  **/
-public class AbstractService<T> implements IService<T> {
+public class AbstractServiceImpl<T> implements IService<T> {
 
     @Autowired
     protected Mapper<T> mapper;
@@ -23,7 +23,7 @@ public class AbstractService<T> implements IService<T> {
     private Class<T> modelClass;
 
     @SuppressWarnings("unchecked")
-    public AbstractService() {
+    public AbstractServiceImpl() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }

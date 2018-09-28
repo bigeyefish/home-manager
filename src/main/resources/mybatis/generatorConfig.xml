@@ -44,8 +44,8 @@
 
         <!-- 配置表信息 -->
         <!--第三方服务类型-->
-        <table schema="home_manager" tableName="job"
-               domainObjectName="Job" enableCountByExample="false"
+        <table schema="home_manager" tableName="resource"
+               domainObjectName="Resource" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>
