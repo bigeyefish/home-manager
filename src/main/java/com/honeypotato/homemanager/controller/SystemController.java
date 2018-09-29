@@ -1,5 +1,7 @@
 package com.honeypotato.homemanager.controller;
 
+import com.honeypotato.homemanager.aop.AnnotationLog;
+import com.honeypotato.homemanager.common.LogUtil;
 import com.honeypotato.homemanager.common.RetFactory;
 import com.honeypotato.homemanager.common.model.RetResult;
 import com.honeypotato.homemanager.model.User;
@@ -27,6 +29,7 @@ public class SystemController {
     private ShiroService shiroService;
 
     @PostMapping("/login")
+    @AnnotationLog
     public RetResult login(String userName, String password) {
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.login(new UsernamePasswordToken(userName, password));

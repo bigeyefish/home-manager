@@ -10,6 +10,11 @@ public class Constant {
 
     public static final String PROP_SEP_SIGN = "@@";
 
+    public static class LogType {
+        public static final String INFO = "info";
+        public static final String ERROR = "error";
+    }
+
     /* 任务类型 1-个人 2-竞争 3- 共同 4轮流*/
     public static class TaskType {
         public static final int PERSONAL = 1;

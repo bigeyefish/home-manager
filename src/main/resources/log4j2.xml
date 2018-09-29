@@ -25,6 +25,22 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
+        <RollingFile name="request_log" fileName="${log_path}/request.log" filePattern="${log_path}/history/request-%d{yyyyMMdd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="temp_log" fileName="${log_path}/temp.log" filePattern="${log_path}/history/temp-%d{yyyyMMdd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
         <RollingFile name="user_log" fileName="${log_path}/user.log" filePattern="${log_path}/history/user-%d{yyyyMMdd}.log">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%m%n</Pattern>
@@ -40,14 +56,25 @@
             <AppenderRef ref="system_log" />
             <AppenderRef ref="Console" />
         </Root>
+
         <Logger name="com.honeypotato.homemanager.dao" level="debug">
             <!--<AppenderRef ref="Console" />-->
         </Logger>
+        <AsyncLogger name="system" level="info" additivity="false">
+            <AppenderRef ref="system_log"/>
+        </AsyncLogger>
+        <AsyncLogger name="request" level="info" additivity="false">
+            <AppenderRef ref="request_log"/>
+        </AsyncLogger>
         <AsyncLogger name="user" level="info" additivity="false">
             <AppenderRef ref="user_log"/>
         </AsyncLogger>
         <AsyncLogger name="error" level="error" additivity="false">
             <AppenderRef ref="error_log"/>
+            <AppenderRef ref="Console" />
+        </AsyncLogger>
+        <AsyncLogger name="temp" level="info" additivity="false">
+            <AppenderRef ref="temp_log"/>
             <AppenderRef ref="Console" />
         </AsyncLogger>
     </loggers>
